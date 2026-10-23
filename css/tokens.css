@@ -1,0 +1,26 @@
+/* ============================================
+   SAMAN · Tokens de diseño
+   Todos los colores y tipografías de la marca.
+   Si cambias un valor aquí, cambia en toda la página.
+   ============================================ */
+
+:root {
+  /* Colores */
+  --copa-profunda: #2F4A3A;  /* títulos, logo, botones */
+  --salvia: #8FA88A;         /* ilustraciones, detalles */
+  --bruma: #D8E2D1;          /* fondos de sección */
+  --lino: #F6F1E7;           /* fondo general */
+  --corteza: #6B4F3A;        /* tronco, acentos tierra */
+  --luz-de-tarde: #C98B4B;   /* acento escaso, nunca para texto */
+  --tinta: #1F2A24;          /* texto */
+
+  /* Tonos de apoyo (mezclas suaves de los colores de arriba) */
+  --lino-claro: #FBF8F2;     /* fondo de secciones alternas y tarjetas */
+  --bruma-suave: #E9EFE2;    /* el círculo detrás del árbol */
+  --borde: #E2D9C6;          /* líneas finas */
+  --texto-suave: #4A5A50;    /* texto secundario */
+
+  /* Tipografías */
+  --fuente-titulos: 'Fraunces', Georgia, serif;
+  --fuente-texto: 'Instrument Sans', system-ui, sans-serif;
+}

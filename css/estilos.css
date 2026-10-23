@@ -1,0 +1,976 @@
+/* ============================================
+   SAMAN · Estilos
+   Usa los tokens de tokens.css con var(--nombre).
+   Orden: base → piezas comunes → cada sección → animaciones.
+   ============================================ */
+
+
+/* ---------- 1. Base ---------- */
+
+/* Medir las cajas incluyendo su borde y relleno */
+* {
+  box-sizing: border-box;
+}
+
+/* Al tocar un enlace del menú, bajar suavemente */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--lino);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-weight: 380;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(32px, 3.8vw, 52px);
+  color: var(--tinta);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--copa-profunda);
+}
+
+a:hover {
+  color: var(--tinta);
+}
+
+/* Contorno visible cuando se navega con el teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--luz-de-tarde);
+  outline-offset: 3px;
+}
+
+
+/* ---------- 2. Piezas que se repiten ---------- */
+
+/* Cada sección ocupa todo el ancho; su contenido va en .contenedor */
+section {
+  padding: clamp(72px, 9vw, 128px) clamp(16px, 4vw, 48px);
+}
+
+.contenedor {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Secciones con fondo más claro y una línea arriba */
+.fondo-claro {
+  background: var(--lino-claro);
+  border-top: 1px solid #EFE8DA;
+}
+
+/* La etiqueta pequeña en mayúsculas sobre cada título */
+.etiqueta {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--corteza);
+}
+
+/* Bloque de etiqueta + título + texto */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 740px;
+  margin-bottom: 48px;
+}
+
+.intro p {
+  color: var(--texto-suave);
+}
+
+/* Palabras en cursiva dentro de los títulos */
+.acento {
+  font-style: italic;
+  color: var(--copa-profunda);
+}
+
+/* Botón principal: una píldora verde */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: var(--copa-profunda);
+  color: var(--lino);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.boton:hover {
+  color: var(--lino);
+  background: var(--tinta);
+}
+
+/* Botón secundario: solo el borde */
+.boton-borde {
+  background: transparent;
+  color: var(--copa-profunda);
+  border: 1px solid var(--copa-profunda);
+}
+
+.boton-borde:hover {
+  background: var(--copa-profunda);
+}
+
+/* Las preguntas en forma de píldora */
+.pregunta {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #EEF2EA;
+  border: 1px solid #C9D8BF;
+  font-size: 14px;
+}
+
+
+/* ---------- 3. Encabezado ---------- */
+
+header {
+  position: sticky;          /* se queda pegado arriba al bajar */
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 241, 231, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(226, 217, 198, 0.6);
+}
+
+.barra {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 14px clamp(16px, 4vw, 48px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--fuente-titulos);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  font-size: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 12px 0;
+}
+
+nav .boton {
+  min-height: 0;
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+
+/* ---------- 4. Inicio (el árbol) ---------- */
+
+#inicio {
+  min-height: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 48px;
+  overflow: hidden;
+}
+
+.arbol {
+  display: block;
+  width: 100%;
+  max-width: 940px;
+  overflow: visible;
+}
+
+.nombre-cientifico {
+  margin-top: 20px;
+  padding-left: 0.32em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--corteza);
+}
+
+#inicio h1 {
+  margin-top: 16px;
+  max-width: 18ch;
+  font-weight: 340;
+  font-size: clamp(38px, 5.2vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--copa-profunda);
+}
+
+.frase {
+  margin-top: 18px;
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 26px);
+  color: var(--texto-suave);
+}
+
+.acciones {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 28px;
+}
+
+.acciones .enlace {
+  font-size: 16px;
+  font-weight: 500;
+  text-underline-offset: 6px;
+  padding: 12px 0;
+}
+
+/* "Desliza" con la rayita que baja */
+.desliza {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--corteza);
+}
+
+.desliza .riel {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--borde);
+  overflow: hidden;
+}
+
+.desliza .riel span {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--corteza);
+}
+
+
+/* ---------- 5. Lo que pasa hoy ---------- */
+
+.momentos {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+/* La línea horizontal que une los tres puntos */
+.momentos::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 11px;
+  height: 1px;
+  background: #C9BFA9;
+}
+
+.momentos li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.momentos .punto {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--lino-claro);
+  border: 2px solid var(--corteza);
+}
+
+.momentos li:last-child .punto {
+  background: var(--corteza);
+}
+
+.momentos .etiqueta {
+  letter-spacing: 0.12em;
+}
+
+
+/* ---------- 6. SAMAN se anticipa (sección oscura) ---------- */
+
+#anticipa {
+  background: var(--copa-profunda);
+  color: var(--lino);
+  overflow: hidden;
+}
+
+.dos-columnas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 56px;
+}
+
+.dos-columnas > * {
+  flex: 1 1 400px;
+  min-width: 0;
+}
+
+.texto-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.texto-columna p {
+  max-width: 480px;
+  color: var(--texto-suave);
+}
+
+#anticipa .etiqueta {
+  color: #D8B48A;
+}
+
+#anticipa h2 {
+  color: var(--lino);
+  font-size: clamp(32px, 3.6vw, 50px);
+}
+
+#anticipa .texto-columna p {
+  color: var(--bruma);
+}
+
+/* La tarjeta clara que muestra cómo se anticipa SAMAN */
+.tarjeta-guia {
+  background: var(--lino);
+  color: var(--tinta);
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+.chip {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bruma);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--copa-profunda);
+}
+
+.tarjeta-guia .calma {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--texto-suave);
+}
+
+.tarjeta-guia .subtitulo {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.preguntas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.empieza {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--copa-profunda);
+  color: var(--lino);
+}
+
+.numero {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--luz-de-tarde);
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.empieza small {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bruma);
+}
+
+.empieza strong {
+  font-size: 16px;
+}
+
+
+/* ---------- 7. El círculo ---------- */
+
+.circulo-zona {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px;
+}
+
+.rueda-caja {
+  flex: 1 1 380px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Un cuadrado: el dibujo va detrás y los botones encima */
+.rueda {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+}
+
+.rueda svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* El anillo que gira hasta la etapa activa (JavaScript cambia el ángulo) */
+.indicador {
+  transform-origin: 220px 220px;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.etapa {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--lino-claro);
+  color: var(--copa-profunda);
+  border: 1px solid #C9D8BF;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.etapa span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  background: var(--bruma);
+}
+
+/* La etapa elegida */
+.etapa[aria-pressed="true"] {
+  background: var(--copa-profunda);
+  color: var(--lino);
+  border-color: var(--copa-profunda);
+}
+
+.etapa[aria-pressed="true"] span {
+  background: var(--luz-de-tarde);
+  color: var(--tinta);
+}
+
+/* Dónde va cada botón alrededor del círculo */
+.etapa:nth-of-type(1) { left: 50%;   top: 9.1%; }
+.etapa:nth-of-type(2) { left: 88.9%; top: 37.3%; }
+.etapa:nth-of-type(3) { left: 74.1%; top: 83.2%; }
+.etapa:nth-of-type(4) { left: 25.9%; top: 83.2%; }
+.etapa:nth-of-type(5) { left: 11.1%; top: 37.3%; }
+
+/* La tarjeta que explica la etapa elegida */
+.detalle {
+  flex: 1 1 360px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--lino-claro);
+  border: 1px solid #E8E0CF;
+}
+
+.detalle h3 {
+  font-weight: 400;
+  font-size: 34px;
+  color: var(--copa-profunda);
+}
+
+.detalle .cita {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--texto-suave);
+}
+
+
+/* ---------- 8. Para quién es ---------- */
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--lino);
+  border: 1px solid var(--borde);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s;
+}
+
+/* Al pasar el mouse, la tarjeta sube un poquito */
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(31, 42, 36, 0.08);
+}
+
+.tarjeta h3 {
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--copa-profunda);
+}
+
+.tarjeta p {
+  font-size: 17px;
+  color: var(--texto-suave);
+}
+
+/* La tarjeta del medio va en verde oscuro */
+.tarjeta-oscura {
+  background: var(--copa-profunda);
+  border-color: var(--copa-profunda);
+  color: var(--lino);
+}
+
+.tarjeta-oscura h3 {
+  color: var(--lino);
+}
+
+.tarjeta-oscura p {
+  color: var(--bruma);
+}
+
+.tarjeta h3 small {
+  margin-left: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bruma);
+  font-family: var(--fuente-texto);
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+
+/* ---------- 9. La app (el celular) ---------- */
+
+#app {
+  overflow: hidden;
+}
+
+#app h2 {
+  font-size: clamp(32px, 3.6vw, 50px);
+}
+
+.celular-caja {
+  display: flex;
+  justify-content: center;
+}
+
+.celular {
+  width: 300px;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 44px;
+  background: var(--tinta);
+  box-shadow: 0 30px 60px rgba(31, 42, 36, 0.22);
+  transform: rotate(-3deg);
+}
+
+.pantalla {
+  border-radius: 34px;
+  background: var(--lino);
+  padding: 28px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 540px;
+}
+
+.pantalla .etiqueta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.pantalla .tema {
+  font-family: var(--fuente-titulos);
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--copa-profunda);
+}
+
+.pantalla .calma {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.pantalla .pregunta {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.pantalla ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pantalla li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--lino-claro);
+  border: 1px solid var(--borde);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pantalla li .numero {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  background: #EFE8DA;
+  color: var(--copa-profunda);
+}
+
+/* El primer paso, resaltado */
+.pantalla li:first-child {
+  background: var(--copa-profunda);
+  border-color: var(--copa-profunda);
+  color: var(--lino);
+}
+
+.pantalla li:first-child .numero {
+  background: var(--luz-de-tarde);
+  color: var(--tinta);
+}
+
+
+/* ---------- 10. Únete y pie de página ---------- */
+
+#unete {
+  background: var(--bruma);
+  text-align: center;
+}
+
+#unete .contenedor {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#unete h2 {
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.08;
+  color: var(--copa-profunda);
+}
+
+#unete p {
+  color: #2F3D35;
+}
+
+footer {
+  background: var(--tinta);
+  color: var(--bruma);
+  padding: 40px clamp(16px, 4vw, 48px);
+}
+
+footer .contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+footer .marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+footer .marca strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--lino);
+}
+
+footer p {
+  font-size: 13px;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+
+/* ---------- 11. Celulares (pantallas angostas) ---------- */
+
+@media (max-width: 520px) {
+  #inicio {
+    min-height: 0;
+    padding-top: 32px;
+  }
+
+  /* Círculo y botones más pequeños para que quepan sin salirse */
+  .rueda {
+    max-width: 270px;
+    margin: 48px 0;
+  }
+
+  .etapa {
+    font-size: 13px;
+    padding: 6px 10px 6px 6px;
+    gap: 6px;
+  }
+
+  .etapa span {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .tarjeta-guia,
+  .detalle,
+  .tarjeta {
+    padding: 24px;
+  }
+}
+
+
+/* ============================================
+   12. Animaciones
+   Cada clase dice CÓMO se mueve algo;
+   el atributo style="animation-delay: ..." dice CUÁNDO empieza.
+   ============================================ */
+
+/* Dibujar una línea, como si fuera un lápiz (ramas y círculo) */
+.dibuja {
+  stroke-dasharray: 1;
+  animation: dibuja 1s cubic-bezier(0.55, 0, 0.25, 1) both;
+}
+
+@keyframes dibuja {
+  0%   { stroke-dashoffset: 1; opacity: 0; }
+  2%   { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* El tronco crece desde el suelo */
+.crece {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: crece 3s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+
+@keyframes crece {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Aparecer poco a poco */
+.aparece {
+  animation: aparece 1s ease both;
+}
+
+@keyframes aparece {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Las hojitas brotan desde pequeñas */
+.brota {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brota 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes brota {
+  from { opacity: 0; transform: scale(0.2); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Los textos suben un poquito mientras aparecen */
+.sube {
+  animation: sube 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes sube {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* "Samanea saman": las letras se juntan */
+.letras {
+  animation: letras 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes letras {
+  from { opacity: 0; letter-spacing: 0.6em; }
+  to   { opacity: 1; letter-spacing: 0.32em; }
+}
+
+/* La copa se mece con el viento, para siempre */
+.mece {
+  transform-box: view-box;
+  transform-origin: 600px 560px;
+  animation: mece 9s ease-in-out 3s infinite;
+}
+
+@keyframes mece {
+  0%, 100% { transform: rotate(0deg); }
+  35%      { transform: rotate(0.35deg); }
+  70%      { transform: rotate(-0.25deg); }
+}
+
+/* La rayita de "Desliza" */
+.desliza .riel span {
+  animation: baja 2.4s ease-in-out infinite;
+}
+
+@keyframes baja {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  45%  { transform: scaleY(1); transform-origin: top; }
+  55%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Las secciones aparecen al bajar con el scroll
+   (solo en navegadores que lo entienden; en los demás se ven normal) */
+@supports (animation-timeline: view()) {
+  .revela {
+    animation: revela linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 45%;
+  }
+
+  @keyframes revela {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* Si la persona pidió "menos movimiento" en su equipo, lo respetamos */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .dibuja,
+  .crece,
+  .aparece,
+  .brota,
+  .sube,
+  .letras,
+  .revela,
+  .mece,
+  .desliza .riel span {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+
+  .letras {
+    letter-spacing: 0.32em;
+  }
+}
